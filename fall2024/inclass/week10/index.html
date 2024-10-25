@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="poke_grid.css" />
+
+    <!-- Uncomment this line to use the CDN Version of Tailwind -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <title>Poke-Info</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Poke-Info Website!</h1>
+      </nav>
+    </header>
+    <main>
+        <div id="poke_grid">
+            <!-- Filled with JS Code -->
+        </div>
+    </main>
+    <footer>
+      © CMSC388j Poke-Info website
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://127.0.0.1:5000/get_pokemon_list')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const pokeGrid = document.getElementById('poke_grid');
+                    const pokemonList = data.pokemon_list;
+                    const pokeIds = data.pokemon_ids; // Assuming IDs are sequential
+    
+                    console.log(pokemonList);
+        
+                    pokemonList.forEach((pokemon, index) => {
+                        const pokemonId = pokeIds[index];
+                        const pokeLink = document.createElement('a');
+                        pokeLink.id = 'poke_link';
+                        pokeLink.className = 'TODO:';
+                        pokeLink.href = `pokemon.html?name=${pokemon}`;
+                        pokeLink.innerHTML = `
+                            ${pokemon}
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" />
+                        `;
+                        pokeGrid.appendChild(pokeLink);
+                    });
+                })
+                .catch(error => console.error('Error fetching Pokémon list:', error));
+        });
+    </script>
+  </body>
+</html>
