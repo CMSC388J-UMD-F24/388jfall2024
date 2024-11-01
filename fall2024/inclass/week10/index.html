@@ -41,7 +41,6 @@
                         const pokemonId = pokeIds[index];
                         const pokeLink = document.createElement('a');
                         pokeLink.id = 'poke_link';
-                        pokeLink.className = 'TODO:';
                         pokeLink.href = `pokemon.html?name=${pokemon}`;
                         pokeLink.innerHTML = `
                             ${pokemon}
@@ -53,5 +52,6 @@
                 .catch(error => console.error('Error fetching Pokémon list:', error));
         });
     </script>
+
   </body>
 </html>
