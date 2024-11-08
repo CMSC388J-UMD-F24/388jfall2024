@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="grid place-items-center w-screen min-h-screen bg-black">
+      <div
+        id="card"
+        class="w-64 h-64 rounded-2xl bg-neutral-900 hover:bg-neutral-800 overflow-hidden"
+        style="transition: background-color 0.5s ease"
+      >
+        <div id="light" class="h-24 w-24 bg-white rounded-full blur-3xl"></div>
+      </div>
+    </div>
+
+    <script>
+      const card = document.getElementById("card");
+      window.addEventListener("mousemove", (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        console.log(x, y);
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const relativeX = x - centerX;
+        const relativeY = y - centerY;
+        card.style.transform = `translateX(${relativeX / 10}px) translateY(${
+          relativeY / 10
+        }px)`;
+
+        const light = document.getElementById("light");
+        light.style.transform = `translate(${relativeX + 3 * 16}px, ${
+          relativeY + 3 * 16
+        }px)`;
+      });
+    </script>
+  </body>
+</html>
