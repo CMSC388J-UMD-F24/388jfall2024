@@ -16,5 +16,5 @@
  - [Project 5](https://classroom.github.com/a/VYRPjVNU) ([README](fall2024/projects/project05.md))
    - [In Class Example Week7](fall2024/inclass/week7)
    - [In Class Example Week10](fall2024/inclass/week10)
-   - - [In Class Example Week11](fall2024/inclass/week11)
+   - [In Class Example Week11](fall2024/inclass/week11)
  - ([Final Project](fall2024/projects/final.md))
