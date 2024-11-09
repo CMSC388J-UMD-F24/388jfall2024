@@ -17,4 +17,4 @@
    - [In Class Example Week7](fall2024/inclass/week7)
    - [In Class Example Week10](fall2024/inclass/week10)
    - [In Class Example Week11](fall2024/inclass/week11)
- - ([Final Project](fall2024/projects/final.md))
+ - [Final Project](fall2024/projects/final.md)
