@@ -23,26 +23,24 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // get quuery
-            let params = new URL(document.location.toString()).searchParams;
-            let name = params.get("name");
-            fetch(`http://127.0.0.1:5000//get_pokemon_info/${name}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    const main = document.querySelector('main');
-                    const pokemonInfo = `
-                        <h2>${data.info.name}</h2>
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.info.id}.png" />
-                        <p>Height: ${data.info.height}</p>
-                        <p>Weight: ${data.info.weight}</p>
-                        <p>Types: ${data.info.abilities.join(', ')}</p>
-                    `;
-                    main.innerHTML = pokemonInfo;
-                })
-                .catch(error => console.error('Error fetching Pokémon:', error));
-        });
+      // get quuery
+      let params = new URL(document.location.toString()).searchParams;
+      let name = params.get("name");
+      fetch(`http://127.0.0.1:5000//get_pokemon_info/${name}`)
+          .then(response => response.json())
+          .then(data => {
+              console.log(data);
+              const main = document.querySelector('main');
+              const pokemonInfo = `
+                  <h2>${data.info.name}</h2>
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.info.id}.png" />
+                  <p>Height: ${data.info.height}</p>
+                  <p>Weight: ${data.info.weight}</p>
+                  <p>Types: ${data.info.abilities.join(', ')}</p>
+              `;
+              main.innerHTML = pokemonInfo;
+          })
+          .catch(error => console.error('Error fetching Pokémon:', error));
     </script>
   </body>
 </html>
